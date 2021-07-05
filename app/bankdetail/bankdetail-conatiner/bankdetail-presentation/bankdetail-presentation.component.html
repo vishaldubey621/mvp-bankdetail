@@ -1,0 +1,142 @@
+<h1>User Form</h1>
+
+<form [formGroup]="bankForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Account Number</label>
+    <input type="number" class="form-control"  placeholder="Enter acc no" formControlName="acc">
+     <!-- validation-->   
+    <div *ngIf="bankForm.controls.acc.invalid && (bankForm.controls.acc.dirty || bankForm.controls.acc.touched)" class="alert alert-danger">
+          <div *ngIf="bankForm.controls.acc.errors.required">
+            Account number is required.
+          </div>
+          <div *ngIf="bankForm.controls.acc.minlength">
+              Account number must be at least 5 digit long.
+          </div>
+      </div> 
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name </label>
+    <input type="text" class="form-control"  placeholder="Enter Name" formControlName="name">
+     <!-- validation-->
+     <div *ngIf="bankForm.controls.name.invalid && (bankForm.controls.name.dirty || bankForm.controls.name.touched)" class="alert alert-danger">
+      <div *ngIf="bankForm.controls.name.errors.required">
+        name is required.
+      </div>
+    </div> 
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email Address </label>
+    <input type="email" class="form-control"  placeholder="Enter Email Address" formControlName="email">
+
+      <!-- validation-->
+     <div *ngIf="bankForm.controls.email.invalid && (bankForm.controls.email.dirty || bankForm.controls.email.touched)" class="alert alert-danger">
+      <div *ngIf="bankForm.controls.email.errors.required">
+        Email is required
+      </div>
+    </div> 
+  </div>
+
+  
+  
+
+    <!-- <div class="form-group">
+      <label for="exampleInputEmail1">Account Holder Name </label>
+      <input type="text" class="form-control"  placeholder="Enter Name" formControlName="name">
+  
+       <div *ngIf="bankForm.controls.name.invalid && (bankForm.controls.name.dirty || bankForm.controls.name.touched)" class="alert alert-danger">
+        <div *ngIf="bankForm.controls.name.errors.required">
+          Name is required.
+        </div>
+      </div> 
+    </div>
+
+    
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email Address></label>
+      <input type="text" class="form-control"  placeholder="Enter EmailAddress" formControlName="email">
+  
+       <div *ngIf="bankForm.controls.email.invalid && (bankForm.controls.email.dirty || bankForm.controls.email.touched)" class="alert alert-danger">
+        <div *ngIf="bankForm.controls.email.errors.required">
+          email is required.
+        </div>
+        </div> 
+      </div> -->
+
+   
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Phone Number </label>
+      <input type="number" class="form-control"  placeholder="Enter Phone Number" formControlName="phone">
+  
+         <!-- validation-->
+       <div *ngIf="bankForm.controls.phone.invalid && (bankForm.controls.phone.dirty || bankForm.controls.phone.touched)" class="alert alert-danger">
+        <div *ngIf="bankForm.controls.phone.errors.required">
+          mobile number is required.
+        </div>
+      </div> 
+    </div>
+
+    
+
+    
+      <label for="exampleFormControlSelect2">Select BankName</label>
+    <select class="form-control" id="exampleFormControlSelect2"  formControlName="bankname">
+      <option *ngFor="let item of bank" [value]="item">{{item}}</option>
+    </select>
+ 
+
+    <label for="exampleFormControlSelect2"  >Select Gender</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" formControlName="gender">
+      <label class="form-check-label" for="flexRadioDefault1">
+        Male
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" formControlName="gender">
+      <label class="form-check-label" for="flexRadioDefault2">
+      Female
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Address </label>
+      <input type="text" class="form-control"  placeholder="Enter Address" formControlName="address">
+  
+       <!-- validation-->
+      <div *ngIf="bankForm.controls.address.invalid && (bankForm.controls.address.dirty || bankForm.controls.address.touched)" class="alert alert-danger">
+        <div *ngIf="bankForm.controls.address.errors.required">
+          Address is required.
+        </div>
+      </div> 
+    </div>
+
+   
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">basic Ammount </label>
+      <input type="number" class="form-control"  placeholder="Enter basic amount" formControlName="basicamount">
+  
+       <!-- validation--> 
+      <div *ngIf="bankForm.controls.basicamount.invalid && (bankForm.controls.basicamount.dirty || bankForm.controls.basicamount.touched)" class="alert alert-danger">
+        <div *ngIf="bankForm.controls.basicamount.errors.required">
+          Amount is required.
+        </div>
+       </div> 
+    </div>
+
+    
+
+    <label for="exampleFormControlSelect2">Select Currancy Code</label>
+    <select class="form-control" id="exampleFormControlSelect2" formControlName="currancy" >
+      <option *ngFor="let item of currancy" [value]="item">{{item}}</option>
+    </select>
+
+    
+    <button type="submit"  class="btn btn-primary" >Submit</button>
+  </form>
+

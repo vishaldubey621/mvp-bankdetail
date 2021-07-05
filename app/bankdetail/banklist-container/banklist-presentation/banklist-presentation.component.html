@@ -1,0 +1,41 @@
+<div class="container">
+    <h2 class="text-center">User List</h2>
+    <div>
+     
+      <button class="my-1 btn btn-secondary mx-3" routerLink="../">Back</button>
+  
+    </div>
+    <table class="table table-striped border border-secondary">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Bank Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Address</th>
+          <th scope="col">Basic Amount</th>
+          <th scope="col">Currancy Code</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customerList of customerList"></tr>
+          <td>{{customerList.id}}</td>
+          <td>{{customerList.name}}</td>
+          <td>{{customerList.email}}</td>
+          <td>{{customerList.Phone}}</td>
+          <td>{{customerList.bankname}}</td>
+          <td>{{customerList.gender}}</td>
+          <td>{{customerList.address}}</td>
+          <td>{{customerList.basicamount}}</td>
+          <td>{{customerList.currancy}}</td>
+          <td>
+            <button (click)="deleteUser(customerList.id)" class="btn btn-danger">Delete</button>
+          </td>
+      </tbody>
+    </table>
+  </div>
+<table>
+    
